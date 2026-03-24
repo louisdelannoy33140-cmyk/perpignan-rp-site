@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PERPIGNAN RP</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #001f3f, #0074D9, #00cfff);
+    color: white;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+h1 {
+    font-size: 45px;
+    background: linear-gradient(90deg, #00cfff, #0074D9, #001f3f);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* NAV */
+nav {
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECTION */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.8s;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* BUTTON */
+.btn {
+    padding: 12px 25px;
+    background: #0074D9;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+/* IMAGES */
+.gallery img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+/* LOGIN */
+#staffPanel {
+    display: none;
+}
+
+/* MOBILE */
+@media(max-width: 600px){
+    h1 {font-size: 30px;}
+    .gallery img {width: 90%;}
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>PERPIGNAN RP</h1>
+    <p>Serveur RP nouvelle génération</p>
+    <a class="btn" href="https://discord.gg/S6j6EJwYQm" target="_blank">💬 Rejoindre Discord</a>
+</header>
+
+<nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#metiers">Métiers</a>
+    <a href="#images">Images</a>
+    <a href="#staff">Staff</a>
+</nav>
+
+<section id="accueil">
+    <h2>Bienvenue</h2>
+    <p>Un serveur RP immersif, actif et réaliste.</p>
+</section>
+
+<section id="metiers">
+    <h2>Métiers RP 👮</h2>
+    <p>🚓 Police</p>
+    <p>🚑 EMS</p>
+    <p>🚒 Pompiers</p>
+    <p>🚕 Taxi</p>
+    <p>🔧 Mécano</p>
+    <p>💼 Civil</p>
+</section>
+
+<section id="images">
+    <h2>Images du serveur 🖼️</h2>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/300x200">
+        <img src="https://via.placeholder.com/300x200">
+        <img src="https://via.placeholder.com/300x200">
+    </div>
+</section>
+
+<section id="staff">
+    <h2>Espace Staff 🔐</h2>
+
+    <input type="text" id="username" placeholder="Nom">
+    <input type="password" id="password" placeholder="Mot de passe">
+    <br><br>
+    <button class="btn" onclick="login()">Connexion</button>
+
+    <div id="staffPanel">
+        <h3>Bienvenue Staff</h3>
+        <p>Zone sécurisée ✔</p>
+    </div>
+</section>
+
+<script>
+
+/* ANIMATION SCROLL */
+window.addEventListener("scroll", () => {
+    document.querySelectorAll("section").forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+
+/* LOGIN SYSTEM */
+function login(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "161211"){
+        document.getElementById("staffPanel").style.display = "block";
+        alert("Connexion réussie");
+    } else {
+        alert("Identifiants incorrects");
+    }
+}
+
+</script>
+
+</body>
+</html>
